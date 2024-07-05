@@ -1,7 +1,8 @@
 function say() {
-  alert("Hello");
-}
+  var username;
+  alert("Hello dear user, welcome to our website !");
 
-function pr() {
-  prompt("enter your name please");
+  username = prompt("Enter your name please");
+
+  document.write("Welcom " + username);
 }
