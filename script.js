@@ -1,8 +1,11 @@
-function say() {
-  var username;
-  alert("Hello dear user, welcome to our website !");
-
-  username = prompt("Enter your name please");
-
-  document.write("Welcom " + username);
+function enter() {
+  var x = prompt("please enter your name");
 }
+
+/*
+if (x == "") {
+  alert("you didn't enter your name");
+  alert("please enter your name again");
+  prompt("Enter please");
+}
+*/
