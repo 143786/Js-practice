@@ -1,11 +1,7 @@
-function enter() {
-  var x = prompt("please enter your name");
-}
+function f1() {
+  var x = 5;
+  var y = 2;
+  x += y; // x = x + y
 
-/*
-if (x == "") {
-  alert("you didn't enter your name");
-  alert("please enter your name again");
-  prompt("Enter please");
+  document.write(x);
 }
-*/
