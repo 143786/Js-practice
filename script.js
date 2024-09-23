@@ -1,7 +1,3 @@
-function f1() {
-  var x = 5;
-  var y = 2;
-  x += y; // x = x + y
-
-  document.write(x);
-}
+//let js = "amazing";
+//if (js === "amazing") alert("Javascript is Fun!");
+// alert("JavaScript is FUN");
