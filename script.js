@@ -131,6 +131,14 @@ function calcAge1(birthYear) {
 }
 
 const age1 = calcAge1(1991);
-console.log(age1);
 
 // Function expression :
+const calcAge2 = function (birthYear) {
+  return 2024 - birthYear;
+};
+
+const age2 = calcAge2(1993);
+
+// Arrow function :
+const calcAge3 = (birthYear) => 2024 - birthYear;
+const age3 = calcAge3(2023);
