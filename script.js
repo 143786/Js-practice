@@ -104,19 +104,33 @@
 
 // const appleJuice = fruitProcessor(5, 0);
 
-function fruitProcessor(apples, oranges, kiwis) {
-  const juice = `juice with ${apples} apples , ${oranges} oranges and ${kiwis} kiwis.`;
+function fruitProcessor(apples, oranges, kiwis, bananes) {
+  const juice = `juice with ${apples} apples , ${oranges} oranges , ${kiwis} kiwis and ${bananes} bananes.`;
   return juice;
 }
 
-const appleJuice = fruitProcessor(4, 0, 0);
+const appleJuice = fruitProcessor(4, 0, 0, 0);
 console.log(appleJuice);
 
-const appleKiwiJuice = fruitProcessor(5, 0, 9);
+const appleKiwiJuice = fruitProcessor(5, 0, 9, 0);
 console.log(appleKiwiJuice);
 
-const kiwiOrangeJuice = fruitProcessor(0, 23, 44);
+const kiwiOrangeJuice = fruitProcessor(0, 23, 44, 0);
 console.log(kiwiOrangeJuice);
 
-const appleOrangeKiwiJuice = fruitProcessor(12, 23, 44);
+const appleOrangeKiwiJuice = fruitProcessor(12, 23, 44, 0);
 console.log(appleOrangeKiwiJuice);
+
+const appleOrangeKiwiBanane = fruitProcessor(1, 2, 3, 4);
+
+const num = Number("33");
+
+// function declaration :
+function calcAge1(birthYear) {
+  return 2024 - birthYear;
+}
+
+const age1 = calcAge1(1991);
+console.log(age1);
+
+// Function expression :
