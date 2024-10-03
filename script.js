@@ -156,16 +156,65 @@
 // // console.log(yearsUntilRetirement(1991, "Tabish"));
 // // console.log(yearsUntilRetirement(1991, "Tabish"));
 
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
+// Function Calling other Function :
+// function cutFruitPieces(fruit) {
+//   return fruit * 5;
+// }
 
-function fruitProcessor(apples, oranges) {
-  const applePieces = cutFruitPieces(apples);
-  const orangesPieces = cutFruitPieces(oranges);
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangesPieces = cutFruitPieces(oranges);
 
-  const juice = `juice with ${applePieces} piece of apples and ${orangesPieces} pience of oranges. `;
-  return juice;
-}
+//   const juice = `juice with ${applePieces} piece of apples and ${orangesPieces} piece of oranges. `;
+//   return juice;
+// }
 
-console.log(fruitProcessor(1, 2));
+// console.log(fruitProcessor(2, 3));
+
+// // Reviewing functions :
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+
+// const yearsUntilRetirement = function (birthYear, firstName) {
+//   const age = calcAge(birthYear);
+//   const retirement = 65 - age;
+
+//   if (retirement > 0) {
+//     console.log(`${firstName} retires in ${retirement} years.`);
+//     return retirement;
+//   } else {
+//     console.log(`${firstName}  has already retired.`);
+//     return -1;
+//   }
+// };
+
+// console.log(yearsUntilRetirement(1991, "Tabish"));
+// console.log(yearsUntilRetirement(1960, "Mike"));
+
+/* Arrays => our first DATA Structure: Array is like a big container into which we
+ can throw variables and then later reference them. */
+
+// Add elements :
+const friends = ["Micheal", "Sean", "Hashim"];
+const newLength = friends.push("Dokai");
+console.log(newLength);
+
+friends.unshift("Shahir");
+console.log(friends);
+
+// Remove elements :
+friends.pop(); // Last
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift(); // First
+console.log(friends);
+
+console.log(friends.indexOf("Sean"));
+
+const fruits = [];
+fruits.push("banana", "apple", 23);
+
+console.log(fruits);
