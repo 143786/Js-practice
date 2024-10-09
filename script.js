@@ -290,11 +290,56 @@ condition is true ) */
 
 // let rep = 1;
 // while (rep <= 10) {
-//   console.log(` WHILE Lifting weight repetition ${rep} 🏋🏽‍♂️`);
+//   // console.log(` WHILE Lifting weight repetition ${rep} 🏋🏽‍♂️`);
 //   rep++;
 // }
 
-// ------- while loop exemple --
+// // ------- while loop exemple --
 
-let dice = Math.trunc(Math.random() * 6) + 1;
-console.log(dice);
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`);
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   if (dice === 6) console.log("Loop is about to end...");
+// }
+
+// function fruitProcessor(apples, oranges) {
+//   // console.log(apples, oranges);
+//   const juice = `juice with ${apples} apples  and ${oranges} oranges.`;
+//   return juice;
+// }
+
+// const appleJuice = fruitProcessor(5, 0);
+// console.log(appleJuice);
+// console.log(fruitProcessor(5, 0));
+// console.log(fruitProcessor(23, 33));
+
+// // --------Function déclaration -------
+// function calcAge1(birthYear) {
+//   return 2024 - birthYear;
+// }
+// const age1 = calcAge1(1991);
+
+// // ------ FUnction expression -----------
+// const calcAge2 = function (birthYear) {
+//   return 2024 - birthYear;
+// };
+
+// const age2 = calcAge2(2023);
+// console.log(age1, age2);
+
+// -------- Arrow Function ---------
+const calcAge3 = (birthYear) => 2024 - birthYear;
+
+const age3 = calcAge3(2023);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear) => {
+  const age = 2024 - birthYear;
+  const retirement = 65 - age;
+  return retirement;
+};
+
+const retirement = yearsUntilRetirement(1991);
+console.log(retirement);
