@@ -1,4 +1,7 @@
 "use strict";
+
+// const { acceptsEncodings } = require("express/lib/request");
+
 // function tab() {
 //   console.log(" I love Ayline! ");
 // }
@@ -195,26 +198,103 @@
 /* Arrays => our first DATA Structure: Array is like a big container into which we
  can throw variables and then later reference them. */
 
-// Add elements :
-const friends = ["Micheal", "Sean", "Hashim"];
-const newLength = friends.push("Dokai");
-console.log(newLength);
+// // Add elements :
+// const friends = ["Micheal", "Sean", "Hashim"];
+// const newLength = friends.push("Dokai");
+// console.log(newLength);
 
-friends.unshift("Shahir");
-console.log(friends);
+// friends.unshift("Shahir");
+// console.log(friends);
 
-// Remove elements :
-friends.pop(); // Last
-const popped = friends.pop();
-console.log(popped);
-console.log(friends);
+// // Remove elements :
+// friends.pop(); // Last
+// const popped = friends.pop();
+// console.log(popped);
+// console.log(friends);
 
-friends.shift(); // First
-console.log(friends);
+// friends.shift(); // First
+// console.log(friends);
 
-console.log(friends.indexOf("Sean"));
+// console.log(friends.indexOf("Sean"));
 
-const fruits = [];
-fruits.push("banana", "apple", 23);
+// const fruits = [];
+// fruits.push("banana", "apple", 23);
 
-console.log(fruits);
+// console.log(fruits);
+
+// console.log(fruits.includes(23));
+// console.log(fruits.includes("banana"));
+// console.log(fruits.includes("oranges"));
+
+// if (fruits.includes("apple")) {
+//   console.log("you have an apple 🍎");
+// }
+
+// const ayline = [
+//   "Ayline",
+//   "Tabish",
+//   "2024 - 2023",
+//   "Kalb baba",
+//   ["Papa", "Maman"],
+//   true,
+// ];
+
+// for (let i = 0; ayline.length; i++) {
+//   console.log(ayline[i], typeof ayline[i]);
+// }
+
+// const years = [1991, 2002, 1993, 2023];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2024 - years[i]);
+// }
+
+// console.log(ages);
+
+// const ayline = [
+//   "Ayline",
+//   "Tabish",
+//   "2024 - 2023",
+//   "Kalb baba",
+//   ["Papa", "Maman", 23, "Victoria"],
+//   true,
+//   "papa",
+//   "maman",
+// ];
+// 0, 1, ..., 4
+// for (let i = 0; ayline.length; i++)
+// 4, 3, ..., 0
+
+// for (let i = ayline.length - 1; i >= 0; i--) {
+//   console.log(i, ayline[i]);
+// }
+
+// // Create a Loop inside a Loop :
+
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`------ Starting exercise ${exercise}`);
+
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(` exercise ${exercise} Lifting weight repetition ${rep} 🏋🏽‍♂️ `);
+//   }
+// }
+
+/*     ---------- While Loop --------
+we can specify the conditions ( it will run while this 
+condition is true ) */
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weight repetition ${rep} 🏋🏽‍♂️`);
+// }
+
+// let rep = 1;
+// while (rep <= 10) {
+//   console.log(` WHILE Lifting weight repetition ${rep} 🏋🏽‍♂️`);
+//   rep++;
+// }
+
+// ------- while loop exemple --
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
