@@ -364,31 +364,84 @@ condition is true ) */
 // const tt = fruitProcessor(2, 9);
 // console.log(tt);
 
-// --------- code challenge 1 ------------
+// // --------- code challenge 1 ------------
 
-const calcAverage = (a, b, c) => (a + b + c) / 3;
-console.log(calcAverage(3, 5, 5));
+// const calcAverage = (a, b, c) => (a + b + c) / 3;
+// console.log(calcAverage(3, 5, 5));
 
-// Test 1 -----
-let scoreDolphins = calcAverage(44, 23, 71);
-let scoreKoalas = calcAverage(65, 54, 49);
-console.log(scoreDolphins, scoreKoalas);
+// // Test 1 -----
+// let scoreDolphins = calcAverage(44, 23, 71);
+// let scoreKoalas = calcAverage(65, 54, 49);
+// console.log(scoreDolphins, scoreKoalas);
 
-const checkWinner = function (avgDolphins, avgKoalas) {
-  if (avgDolphins >= 2 * avgKoalas) {
-    console.log(`Dolphins win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
-  } else if (avgKoalas >= 2 * avgDolphins) {
-    console.log(`Koalas win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
-  } else {
-    console.log("No team wins... ");
-  }
+// const checkWinner = function (avgDolphins, avgKoalas) {
+//   if (avgDolphins >= 2 * avgKoalas) {
+//     console.log(`Dolphins win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
+//   } else if (avgKoalas >= 2 * avgDolphins) {
+//     console.log(`Koalas win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
+//   } else {
+//     console.log("No team wins... ");
+//   }
+// };
+// checkWinner(scoreDolphins, scoreKoalas);
+// // --- test 2
+
+// scoreDolphins = calcAverage(85, 54, 41);
+// scoreKoalas = calcAverage(23, 34, 27);
+// console.log(scoreDolphins, scoreKoalas);
+// checkWinner(scoreDolphins, scoreKoalas);
+
+// //  ---------- Array -----------------
+
+// const friend1 = "Sean";
+// const friend2 = "Hashim";
+// const friend3 = "Doaki";
+
+// // wen can write array like this :
+// const friends = ["Sean", "Hashim", "Dokai"];
+// console.log(friends);
+
+// // we can write array also like this :
+// const years = new Array(2011, 2020, 2000, 1991);
+// // in here we put elements in an Array.
+
+// // we need a way to get them out : like this => :
+// console.log(friends[0]);
+// console.log(friends[2]);
+// console.log(friends.length);
+// console.log(friends[friends.length - 1]);
+// console.log(years.length);
+// console.log(years[years.length - 2]);
+
+// // change or mutate the Array
+
+// friends[1] = "Alim";
+// console.log(friends);
+
+// // Array with diffrent values types :
+// const firstName = "Ayline";
+// const ayline = ["firstName", "Tabish", 2024 - 2023, "Kalb baba", friends];
+// console.log(ayline);
+// console.log(ayline.length);
+
+// // Exercise :
+const calcAge = function (birthYear) {
+  return 2024 - birthYear;
 };
-checkWinner(scoreDolphins, scoreKoalas);
-// --- test 2
 
-scoreDolphins = calcAverage(85, 54, 41);
-scoreKoalas = calcAverage(23, 34, 27);
-console.log(scoreDolphins, scoreKoalas);
-checkWinner(scoreDolphins, scoreKoalas);
+const years2 = [1991, 1967, 2002, 2020, 2018];
 
-//  ---------- Array -----------------
+const age1 = calcAge(years2[0]);
+const age2 = calcAge(years2[1]);
+const age3 = calcAge(years2[years2.length - 1]);
+
+console.log(age1, age2, age3);
+
+// example Array :
+
+const ages = [
+  calcAge(years2[0]),
+  calcAge(years2[1]),
+  calcAge(years2[years2.length - 1]),
+];
+console.log(ages);
