@@ -329,17 +329,66 @@ condition is true ) */
 // const age2 = calcAge2(2023);
 // console.log(age1, age2);
 
-// -------- Arrow Function ---------
-const calcAge3 = (birthYear) => 2024 - birthYear;
+// // -------- Arrow Function ---------
+// const calcAge3 = (birthYear) => 2024 - birthYear;
 
-const age3 = calcAge3(2023);
-console.log(age3);
+// const age3 = calcAge3(2023);
+// // console.log(age3);
 
-const yearsUntilRetirement = (birthYear) => {
-  const age = 2024 - birthYear;
-  const retirement = 65 - age;
-  return retirement;
+// const yearsUntilRetirement = (birthYear, firstName) => {
+//   const age = 2024 - birthYear;
+//   const retirement = 65 - age;
+
+//   // return retirement;
+//   return `${firstName} retires in ${retirement} years`;
+// };
+
+// console.log(yearsUntilRetirement(2023, "Ayline"));
+// console.log(yearsUntilRetirement(1991, "Tabish"));
+// console.log(yearsUntilRetirement(1976, "Mike"));
+// console.log(yearsUntilRetirement(1956, "Dokai"));
+
+//   ------- Functions Calling other functions-------
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
+
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangesPieces = cutFruitPieces(oranges);
+
+//   const juice = `juice with ${applePieces} pieces of apples  and ${orangesPieces} pieces of orange.`;
+//   return juice;
+// }
+
+// const tt = fruitProcessor(2, 9);
+// console.log(tt);
+
+// --------- code challenge 1 ------------
+
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+console.log(calcAverage(3, 5, 5));
+
+// Test 1 -----
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
+console.log(scoreDolphins, scoreKoalas);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Koalas win the Trophy 🎉🏆 ${avgDolphins} vs. ${avgKoalas}`);
+  } else {
+    console.log("No team wins... ");
+  }
 };
+checkWinner(scoreDolphins, scoreKoalas);
+// --- test 2
 
-const retirement = yearsUntilRetirement(1991);
-console.log(retirement);
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+console.log(scoreDolphins, scoreKoalas);
+checkWinner(scoreDolphins, scoreKoalas);
+
+//  ---------- Array -----------------
