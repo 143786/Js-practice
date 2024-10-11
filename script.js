@@ -424,24 +424,167 @@ condition is true ) */
 // console.log(ayline);
 // console.log(ayline.length);
 
-// // Exercise :
-const calcAge = function (birthYear) {
-  return 2024 - birthYear;
+// // // -------- Exercise  ----------- :
+// const calcAge = function (birthYear) {
+//   return 2024 - birthYear;
+// };
+
+// const years2 = [1991, 1967, 2002, 2020, 2018];
+
+// const age1 = calcAge(years2[0]);
+// const age2 = calcAge(years2[1]);
+// const age3 = calcAge(years2[years2.length - 1]);
+
+// console.log(age1, age2, age3);
+
+// // --------- Example Array  ----------:
+
+// const ages = [
+//   calcAge(years2[0]),
+//   calcAge(years2[1]),
+//   calcAge(years2[years2.length - 1]),
+// ];
+// console.log(ages);
+
+/* ---------- Basics Arrays Operations (Methods)----------: 
+-------------- Add elements method :
+ the push method : adds elements to the end of an Array :
+ push is method which technically is a functtion.
+   -------------- The Push method -----------
+ */
+
+// const friends = ["Sean", "Hashim", "Dokai"];
+// const newLength = friends.push("Alim");
+// console.log(friends);
+
+/* ------------ The unshift method--------
+ -------- unshift method adds elements to begining of an Array --- */
+
+// friends.unshift("Shams");
+// console.log(friends);
+// /* Remove elements:    ----- pop  the opposite of the push method --
+// this time we dont need to passe in any arguments , no information needed  */
+
+// friends.pop(); // Last - remove
+// const popped = friends.pop();
+// console.log(popped);
+// console.log(friends);
+// //  shift => opposite of shift = remove the first element :
+// friends.shift();
+// console.log(friends);
+
+// /* --- indexOf => this method use to know where is the certain
+//  elements in array */
+
+// console.log(friends.indexOf("Sean"));
+
+// /* includes => this method cheack if an elements is in array or not
+// if the elements is in Array it say true or not false : */
+
+// console.log(friends.includes("Sean"));
+
+/* ------ Object----- => 
+
+*/
+
+// const aylineArray = [
+//   "Ayline",
+//   "Tabish",
+//   2024 - 2023,
+//   "Kalb baba",
+//   ["Maman", "Papa", "Soline"],
+// ];
+/* in this Array there is no way to giving these elements a name and so
+we can't reference them by name, but only by their order number in which
+they appear in the array. and so to solve that problem, we have another data 
+structure in JS which is objects. 
+So in objects, we actually define key value pairs. and so then we can give
+each of these values here a name. ------  :  */
+
+// const ayline = {
+//   firstName: "Ayline",
+//   lastName: "Tabish",
+//   age: 2024 - 2023, //  we can put any expression here.
+//   job: "Kalb baba",
+//   friends: ["Maman", "Papa", "Soline"],
+// };
+// /* here we have five key value pairs. ( we called him five properties also)
+// Objects are the most fundamental concept of JS. so there are many ways of creating
+// objects. the easiest way of creating the objects is like exaple in above with curly braces
+// and it's called the object literral Syntax. *** we use objects to essentially group togeather
+// diffrent variables that really belong togeather such as the properties of Ayline.
+
+// --- *** THE BIG Difference between Objects and arrays, is that in objects the order of
+// these values does not matter at all when we want to retrieve them. */
+
+// console.log(ayline);
+// console.log(ayline.friends);
+// console.log(ayline["firstName"]);
+
+// const nameKey = "Name";
+// console.log(ayline["first" + nameKey]);
+// console.log(ayline["last" + nameKey]);
+
+/* when we need to first compute the property name, like we did here with the first and 
+last name, then we have to use the bracket notation => []
+ in any other case, just use the dot (.) 
+notation which looks a lot cleaner and it's also easier to use. */
+
+/* in this example we dont know which property we want to show, and instead we get this
+information from some user interface so, for that we can use the prompt function, 
+ --- **** prompt is another built in function like console.log or others. */
+
+// const interestedIn = prompt(
+//   "What do you want to know about ayline? Choose between firstName, lastName, age, job, and friends"
+// );
+
+/*  console.log(ayline.interestedIn); --- *=> in here dot notation (.) not working so we use 
+ bracket notation []. because with this we can put any expression that we want  */
+
+// console.log(ayline[interestedIn]);
+
+// if (ayline[interestedIn]) {
+//   console.log(ayline[interestedIn]);
+// } else {
+//   console.log(
+//     "Wrong request! Choose between firstName, lastName, job, friends"
+//   );
+// }
+/*  how to use both the dot and brackets notation to add new properties to the object.*/
+
+// ayline.location = "France";
+// ayline["adress"] = "55 A Rue du dauphiné"; // in [] here we can put any expression...
+// ayline;
+// console.log(ayline);
+
+// // ayline has 3 friends, and his best friend is called Soline : =>  ** challenge **
+
+// console.log(
+//   `${ayline.firstName} has ${ayline.friends.length} friends, and his best friend is called ${ayline.friends[2]}`
+// );
+
+/*  ---------- < Object Methods  > ---------------------------- >
+object like array can hold different types of data, and they can hold even Arrays.
+they could even hold objects inside objects. we can add functions to ojects " functions
+are really just another type of value and if a funcion is just a vlue then that means 
+that we can create a key value pair in which the vlaue is a function. and that means we 
+can in fact add functions to objects." ===  add funcotions to Object === */
+
+const ayline = {
+  firstName: "Ayline",
+  lastName: "Tabish",
+  birthYear: 2023,
+  job: "Kalb baba",
+  friends: ["Maman", "Papa", "Soline"],
+  sheIsInCrèche: true,
+
+  calcAge: function (birthYear) {
+    /* this is pretty similar to simply writing this : 
+    const calcAge = function(birthYear) {
+       return 2024 - birthYear;
+     }  the diffrence is just in the sytanx because now calcAge is not a
+     regular variable but it's a property of the ayline object.  */
+
+    return 2024 - birthYear;
+  },
 };
-
-const years2 = [1991, 1967, 2002, 2020, 2018];
-
-const age1 = calcAge(years2[0]);
-const age2 = calcAge(years2[1]);
-const age3 = calcAge(years2[years2.length - 1]);
-
-console.log(age1, age2, age3);
-
-// example Array :
-
-const ages = [
-  calcAge(years2[0]),
-  calcAge(years2[1]),
-  calcAge(years2[years2.length - 1]),
-];
-console.log(ages);
