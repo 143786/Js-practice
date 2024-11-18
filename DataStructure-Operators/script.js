@@ -1,5 +1,10 @@
 'use strict';
 
+/*  ** --- Destructuring Object --- for doing that we use the 
+curly braces {} because this is also how we crate objects. then 
+then all we have to do is to provide the variable names that exactly match the 
+property names that we wnat to retrieve from the object ***  */
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -25,7 +30,42 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} 
+      will be delivered to ${address} at ${time} `
+    );
+  },
 };
+
+// ** --- THE SPREAD OPERATOR --- ***
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+const newArr = [1, 2, ...arr];
+
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = ['Gnocci', ...restaurant.mainMenu];
+console.log(newMenu);
+
+// -- Copy array
+const mainMenuCopy = [
+  ...restaurant.mainMenu,
+]; /* here we just created a shallow 
+copy of this array. si that's a little bit similar to object.assign   */
+
+// --** JOIN 2 ARRAYS OR MORE TOGETHER ** we can use the same technique  __
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+/* restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
 const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
@@ -39,14 +79,30 @@ const {
 console.log(restaurant, hours, tags);
 
 /*  set the default value here , here we change the name of starterMenu to starters, and 
- we also want to give it a default value : =>  */
+ we also want to give it a default value in case it doesn't exist so in this case, just 
+ an empty array [] : =>  */
 
-const { menu = [], starterMenu: starters = [] } = restaurant;
+// Default values
+/* const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
-/*  ** --- Destructuring Object --- for doing that we use the 
-curly braces {} because this is also how we crate objects. then 
-then all we have to do is to provide the variable names that exactly match the 
-property names that we wnat to retrieve from the object ***  */
+/*  here we mutated these variables    
+
+// Mutating varibales in objects
+
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj); 
+// console.log(a, b);
+
+// ** Nested objects :
+
+const {
+  fri: { open: o, close: c },
+} = openingHours; 
+// console.log(o, c);
 
 // -- ** Destructuring Arrays ** ---
 /*
