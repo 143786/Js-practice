@@ -67,18 +67,35 @@ copy of this array. si that's a little bit similar to object.assign   */
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
 
-// ** Iterables : Arrays, Strings, maps, sets , ( NOT objects )
+// ** Iterables : Arrays, Strings, maps, sets , ( NOT objects ) -- Since ES 2018,
+// the spread operator works with objects even though objects are not iterables
 
 const str = 'Ayline';
 const letters = [...str, ' ', 'T.'];
 console.log(letters);
 
+// Real-world example -- ***
 const ingredients = [
-  prompt("Let's make pasta! ingredient 1? "),
-  prompt('ingrdient 2?'),
-  prompt('ingrdient 3?'),
+  // prompt("Let's make pasta! ingredient 1? "),
+  // prompt('ingrdient 2?'),
+  // prompt('ingrdient 3?'),
 ];
 console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // here we
+// can use the SPREAD Operator to change that  like  this : =>
+
+restaurant.orderPasta(...ingredients);
+
+// -- *** OBJECTS - Spread operator ---
+const newRestourant = { foundingIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestourant);
+
+const restaurantCopy = { ...restaurant }; // shallow copies...
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
 /* restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
