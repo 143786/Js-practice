@@ -33,27 +33,50 @@
 // }
 
 // --- *** For Loop use an array and objects : *** --
-const myStudents = [
-  {
-    firstName: "Ayline",
-    grade: 98,
-  },
-  {
-    firstName: "Tabish",
-    grade: 77,
-  },
-  {
-    firstName: "Nil",
-    grade: 88,
-  },
-  {
-    firstName: "Malik",
-    grade: 66,
-  },
-];
+// const myStudents = [
+//   {
+//     firstName: "Ayline",
+//     grade: 98,
+//   },
+//   {
+//     firstName: "Tabish",
+//     grade: 77,
+//   },
+//   {
+//     firstName: "Nil",
+//     grade: 88,
+//   },
+//   {
+//     firstName: "Malik",
+//     grade: 66,
+//   },
+// ];
 
-for (let i = 0; i < myStudents.length; i++) {
-  let student = myStudents[i];
-  //  console.log(student);
-  console.log(`${student.firstName} socred ${student.grade}`);
+// for (let i = 0; i < myStudents.length; i++) {
+//   let student = myStudents[i];
+//   //  console.log(student);
+//   console.log(`${student.firstName} socred ${student.grade}`);
+// }
+// let total = 0;
+
+// for (let i = 0; i < myStudents.length; i++) {
+//   let student = myStudents[i];
+//   total += student.grade;
+// }
+// console.log(total / myStudents.length);
+// -- *** LOOP with string --**
+
+// const word = "stressed";
+// for (let i = word.length - 1; i >= 0; i--) {
+//   console.log(word[i]);
+// }
+
+// -- *** LOOP inside of LOOP : like conditional statments (if) we can use
+// loop inside another loop.
+
+for (let i = 1; i <= 10; i++) {
+  console.log("OUTER LOOP:", i);
+  for (let j = 10; j >= 0; j -= 2) {
+    console.log("  INNER LOOP", j);
+  }
 }
