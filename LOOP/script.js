@@ -26,8 +26,34 @@
 //   console.log(i);
 // }
 
-const examScores = [98, 77, 84, 91, 57, 66];
+// const examScores = [98, 77, 84, 91, 57, 66];
 
-for (let i = 0; i < examScores.length; i++) {
-  console.log(i, examScores[i]);
+// for (let i = 0; i < examScores.length; i++) {
+//   console.log(i, examScores[i]);
+// }
+
+// --- *** For Loop use an array and objects : *** --
+const myStudents = [
+  {
+    firstName: "Ayline",
+    grade: 98,
+  },
+  {
+    firstName: "Tabish",
+    grade: 77,
+  },
+  {
+    firstName: "Nil",
+    grade: 88,
+  },
+  {
+    firstName: "Malik",
+    grade: 66,
+  },
+];
+
+for (let i = 0; i < myStudents.length; i++) {
+  let student = myStudents[i];
+  //  console.log(student);
+  console.log(`${student.firstName} socred ${student.grade}`);
 }
