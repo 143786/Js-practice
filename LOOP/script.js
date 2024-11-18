@@ -25,3 +25,9 @@
 // for (let i = 1; i !== 20; i += 2){
 //   console.log(i);
 // }
+
+const examScores = [98, 77, 84, 91, 57, 66];
+
+for (let i = 0; i < examScores.length; i++) {
+  console.log(i, examScores[i]);
+}
