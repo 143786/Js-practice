@@ -37,6 +37,12 @@ const restaurant = {
       will be delivered to ${address} at ${time} `
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    // here we add another method (oderPasta)
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 // ** --- THE SPREAD OPERATOR --- ***
@@ -58,8 +64,21 @@ copy of this array. si that's a little bit similar to object.assign   */
 
 // --** JOIN 2 ARRAYS OR MORE TOGETHER ** we can use the same technique  __
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
+
+// ** Iterables : Arrays, Strings, maps, sets , ( NOT objects )
+
+const str = 'Ayline';
+const letters = [...str, ' ', 'T.'];
+console.log(letters);
+
+const ingredients = [
+  prompt("Let's make pasta! ingredient 1? "),
+  prompt('ingrdient 2?'),
+  prompt('ingrdient 3?'),
+];
+console.log(ingredients);
 /* restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
