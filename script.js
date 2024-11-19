@@ -1,5 +1,10 @@
 'use strict';
 
+/*  ** --- Destructuring Object --- for doing that we use the 
+curly braces {} because this is also how we crate objects. then 
+then all we have to do is to provide the variable names that exactly match the 
+property names that we wnat to retrieve from the object ***  */
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -25,10 +30,115 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} 
+      will be delivered to ${address} at ${time} `
+    );
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    // here we add another method (oderPasta)
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
-/*  ** --- Destructuring Object --- for doing that we use the 
-curly braces {} because this is also how we crate objects. ***  */
+// ** --- THE SPREAD OPERATOR --- ***
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+const newArr = [1, 2, ...arr];
+
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = ['Gnocci', ...restaurant.mainMenu];
+console.log(newMenu);
+
+// -- Copy array
+const mainMenuCopy = [
+  ...restaurant.mainMenu,
+]; /* here we just created a shallow 
+copy of this array. si that's a little bit similar to object.assign   */
+
+// --** JOIN 2 ARRAYS OR MORE TOGETHER ** we can use the same technique  __
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// ** Iterables : Arrays, Strings, maps, sets , ( NOT objects ) -- Since ES 2018,
+// the spread operator works with objects even though objects are not iterables
+
+const str = 'Ayline';
+const letters = [...str, ' ', 'T.'];
+console.log(letters);
+
+// Real-world example -- ***
+const ingredients = [
+  // prompt("Let's make pasta! ingredient 1? "),
+  // prompt('ingrdient 2?'),
+  // prompt('ingrdient 3?'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // here we
+// can use the SPREAD Operator to change that  like  this : =>
+
+restaurant.orderPasta(...ingredients);
+
+// -- *** OBJECTS - Spread operator ---
+const newRestourant = { foundingIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestourant);
+
+const restaurantCopy = { ...restaurant }; // shallow copies...
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+/* restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+console.log(restaurant, hours, tags);
+
+/*  set the default value here , here we change the name of starterMenu to starters, and 
+ we also want to give it a default value in case it doesn't exist so in this case, just 
+ an empty array [] : =>  */
+
+// Default values
+/* const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+/*  here we mutated these variables    
+
+// Mutating varibales in objects
+
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj); 
+// console.log(a, b);
+
+// ** Nested objects :
+
+const {
+  fri: { open: o, close: c },
+} = openingHours; 
+// console.log(o, c);
 
 // -- ** Destructuring Arrays ** ---
 /*
