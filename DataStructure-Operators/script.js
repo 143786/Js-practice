@@ -50,8 +50,11 @@ const restaurant = {
   },
 };
 
-// Logical Opertators ( && and ||)
-// Use ANY data type, return ANY data type, Short-Circtuiting  ( && and ||)
+/*Logical Opertators ( && and ||)
+Use ANY data type, return ANY data type, Short-Circtuiting  ( && and ||)
+OR Operator ||  
+The OR operator short circuits return the first truthy value.
+*/
 console.log(3 || 'ayline');
 console.log('' || 'ayline');
 console.log(true || 0);
@@ -65,6 +68,39 @@ console.log(guests1);
 
 const guests2 = restaurant.numGuests || 10; //  this is the way of Short-Circtuiting
 console.log(guests2);
+
+// AND Operator && => when it comes to short-circuit evaluation,the AND operator works
+// in the exact opposite way of the OR operator.
+
+/* The AND operator short circuits when the first value is falsy 
+and then immediately returns that falsy value.
+
+*/
+
+console.log('--- AND ----');
+console.log(0 && 'ayline');
+console.log(7 && 'ayline');
+
+// *** Practical example :
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+// this work the same like if () statements.
+
+/*                                  ***  Summarize  *****  
+the OR (||) operator will return the first truthy value of all the operands, 
+or simply the last value if all of them are falsy. 
+on the other hand,  the AND (&&) operator will return the first falsy value 
+or the last value if all of them are truthy.
+****** And as for practical applications we can use the OR operator to set default values, 
+And we can use the AND operator to execute code in the second operand if the first one is 
+true.
+
+
+*/
 
 /*
 //////////////////////////////////////////////////////////////////////////
