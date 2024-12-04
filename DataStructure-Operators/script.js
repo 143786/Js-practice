@@ -50,24 +50,76 @@ const restaurant = {
   },
 };
 
+// ****   Logical Assignment operators : introduced in ES 2021 :
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+/* ****  OR ||=  assignment operator :
+ This operator assigns a variable to a variable if that variable is currently falsy, like this
+ one rest1.numGuests ||= 10; this variable is currently falsy and so it will be assigned the value
+ of 10. there's an axception in one situation 
+
+*/
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// the shortcut ways of  this rest1.numGuests = rest1.numGuests || 10; will be like this
+// it call Logical Assignment Operators :
+//rest1.numGuests ||= 10;
+//rest2.numGuests ||= 10;
+/*The Logical nullish assignement operator (null or undefined) :
+the nuliish assignement operator will assign a value to a variable if that exact varibale is 
+currently nullish so again, that is the case in restaurant number2
+*/
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator :
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// We can write it like this in shortcut way :
+rest2.owner &&= '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+// /*  *** Nullish : null and undefinded (NOT 0 or '' )
+//  nullish coalescing operator : it' an operator that was introduced in ES2020,
+// and it works like this :
+//  */
+// const guestsCorrect = restaurant.numGuests ?? 10;
+// console.log(guestsCorrect);
+
 /*Logical Opertators ( && and ||)
 Use ANY data type, return ANY data type, Short-Circtuiting  ( && and ||)
 OR Operator ||  
 The OR operator short circuits return the first truthy value.
 */
-console.log(3 || 'ayline');
-console.log('' || 'ayline');
-console.log(true || 0);
-console.log(undefined || null);
+// console.log(3 || 'ayline');
+// console.log('' || 'ayline');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-restaurant.numGuests = 20;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// restaurant.numGuests = 20;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-const guests2 = restaurant.numGuests || 10; //  this is the way of Short-Circtuiting
-console.log(guests2);
+// const guests2 = restaurant.numGuests || 10; //  this is the way of Short-Circtuiting
+// console.log(guests2);
 
 // AND Operator && => when it comes to short-circuit evaluation,the AND operator works
 // in the exact opposite way of the OR operator.
@@ -77,16 +129,16 @@ and then immediately returns that falsy value.
 
 */
 
-console.log('--- AND ----');
-console.log(0 && 'ayline');
-console.log(7 && 'ayline');
+// console.log('--- AND ----');
+// console.log(0 && 'ayline');
+// console.log(7 && 'ayline');
 
-// *** Practical example :
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// // *** Practical example :
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 // this work the same like if () statements.
 
@@ -98,8 +150,6 @@ or the last value if all of them are truthy.
 ****** And as for practical applications we can use the OR operator to set default values, 
 And we can use the AND operator to execute code in the second operand if the first one is 
 true.
-
-
 */
 
 /*
