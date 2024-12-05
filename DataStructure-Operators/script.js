@@ -13,7 +13,7 @@ THe second enhancement to object literals is about writing  methods.
 so in ES6 we no longer have to create a property, and then set it to a functon expression, like 
 we have always been doing, 
 */
-const weekdays = ['mon', 'tue', 'wed', 'the', 'fri', 'sat', 'sun'];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
     open: 12,
@@ -121,9 +121,9 @@ Then this open property will be read from there.  But if not, the immediately un
 returned. and exist here actullay means the nullish concept, so if it's zero or the empty String, 
   then it still exists, soif we try this now, then we get undefined.*/
 
-//  Example of Optional chaining :
+//  Example of Optional chaining  and nullish coalescing
 
-const days = ['mon', 'tue', 'wed', 'the', 'fri', 'sat', 'sun'];
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? 'cloded';
   // here we use the optional chaining operator (?.) and the nullish coalescing operator (??)
@@ -131,6 +131,46 @@ for (const day of days) {
   // with each other. so both of them rely on this new concept of nullish so nullish values are
   // null and undefined.
   console.log(`On ${day}, we open at ${open}`);
+}
+
+/*  Optional chaining and nullish coalescing - for calling Methods :      */
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
+
+/*  Optional chaining and nullish coalescing - Arrays :  
+So basically we can use it to cheack if an array is empty , so 
+we simply create a users array :    */
+
+const users = [{ name: 'ayline', email: 'abdelmaliktabish@gmail.com' }];
+// now to get the name of the first element of this array, we can do this, if it exist so
+// optional chaining only then take its name, and otherwise we want to log user array empty.
+console.log(users[0].name ?? 'User array empty');
+
+// without optional chaining we would have to write something like this :
+if (users.length > 0) console.log(users[0].name);
+else console.log('User array empty');
+/* so that looks like a lot more work then what we just have up there. so here
+ we don't need to do any cheack so that's a lot better.
+ console.log(users[0].name ?? 'User array empty');  
+ so now in both cases, we get ayline . */
+
+/* - ******************** - Looping Objects :  object Keys, values And Entries  ********
+   We learned about the for of loop to loop over arrays, which remember is iterable, but 
+   we can also loop over objects, which are not Iterable, but in an indirect way.
+   Now we have different options here, depending on what exactly we want to loop over.
+   So we want to loop over the objects, property names over the values or both together.
+   And let's start by simply looping over property names, they are also called keys.
+   Now we will still have to use the for of loop to loop over the array, but again we're going
+   to do that in an indirect way. So we're not actually looping over the object itself. 
+   Instead, we're going to loop over, an array ::::
+
+*/
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+console.log(`We are open on ${properties.length} days`);
+for (const day of properties) {
+  console.log(day);
 }
 
 /*  ****    --- Looping Arrays : The for-of Loop -- introduced in ES6  : 
