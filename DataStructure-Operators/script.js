@@ -165,12 +165,33 @@ else console.log('User array empty');
    Instead, we're going to loop over, an array ::::
 
 */
+
+// Property NAMES :
 const properties = Object.keys(openingHours);
 console.log(properties);
 
-console.log(`We are open on ${properties.length} days`);
+let openStr = `We are open on ${properties.length} 
+days: `;
 for (const day of properties) {
-  console.log(day);
+  openStr += `${day},`;
+}
+console.log(openStr);
+
+// Property VALUES :
+
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object :
+
+const entries = Object.entries(openingHours);
+// console.log(entries);
+// we now get an array, so all of these keys, values and entries basically transformed the
+// object into an array. and here we have fiest the key then the value, so now we can use this
+// to basically loop over the object :
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
 
 /*  ****    --- Looping Arrays : The for-of Loop -- introduced in ES6  : 
