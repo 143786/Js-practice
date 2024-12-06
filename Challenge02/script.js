@@ -46,8 +46,28 @@ const game = {
 for (const [i, player] of game.scored.entries())
   console.log(`Goal ${i + 1} : ${player}`);
 
-// 2.
+/* 2. here we have to calculate the average odd: we gonna to 
+      loop over this object here and simply add all of these
+      three values togeather.
+*/
+const odds = Object.values(game.odds);
+let average = 0;
 
-// 3. Here we use the SPREAD OPERATOR...
+// now in each iteration, we will add odds to the
+// average. so in the end we can divided it by the
+// length of this objec.values array.
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd} `);
+}
+// in the array we use the entries method to get the entries
+// of the array, but in the object we have to use Object.entries
+// and then pass into the function, tha the object that we
+// are interestged in.
 
 // 4.
