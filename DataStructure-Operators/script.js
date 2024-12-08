@@ -126,7 +126,8 @@ const orderSet = new Set([
   'Pizza',
 ]);
 
-console.log(orderSet); /* in output of console we have just
+// console.log(orderSet);
+/* in output of console we have just
   three values pasta , pizza and Risotto , so all the duplicates
   are gone. AND kind of look similar to an array. So there are
   no key value pairs, it's just a buch of values grouped together
@@ -135,7 +136,8 @@ console.log(orderSet); /* in output of console we have just
   are unique. AND second, because the order of elements in the 
   set is irrelevant.  */
 
-console.log(new Set('Ayline')); /* so we have get a set with 
+// console.log(new Set('Ayline'));
+/* so we have get a set with 
 6 elements ( a y l i n e ) that's the five components of this 
 iterable, which is the String. ANd of course, the set could also
 be empty, just like this :  console.log(new Set(' '));
@@ -143,14 +145,14 @@ be empty, just like this :  console.log(new Set(' '));
 Now we learn how to work with sets :
 */
 
-console.log(orderSet.size); // we can get the size of a set.
+// console.log(orderSet.size); // we can get the size of a set.
 // it's not length like its in arrays.
 
 /* we can check if a certain element is in a set.
 actually it's a method : has()
 */
-console.log(orderSet.has('Pizza'));
-console.log(orderSet.has('bread'));
+// console.log(orderSet.has('Pizza'));
+// console.log(orderSet.has('bread'));
 // to add some elements in set we use the add keywords or add method:
 orderSet.add('Garlic Bread');
 orderSet.add('Garlic Bread');
@@ -162,7 +164,7 @@ orderSet.add('Garlic Bread');
 // * for delete elements :
 orderSet.delete('Risotto');
 //orderSet.clear(); //  This method is for delete all elements :
-console.log(orderSet);
+// console.log(orderSet);
 
 /* *** in sets there are no indexex, and in fact, there is no way
 of getting values out of a set. there's no need for getting data 
@@ -194,7 +196,7 @@ const stafUnique = new Set(staff);
   iterables.  spread operators work in all iterables. */
 const stafUnique1 = [...new Set(staff)];
 
-console.log(stafUnique, stafUnique1);
+// console.log(stafUnique, stafUnique1);
 
 /* now we want to know how many diffrent positions there are the the
  size property is very useful : */
@@ -205,7 +207,7 @@ console.log(
 /*  And the same could even be done with counting, how many 
 different letters there are in a string ; because a string
 is also an iterable :  */
-console.log(new Set('Ayline').size);
+// console.log(new Set('Ayline').size);
 /*  ********** AS a Conclusion : sets are not intended  to replace arrays
  at all, so whenever you need to store values in order, and
  that might contain duplicates, always just use arrays, That's 
@@ -256,6 +258,45 @@ get method is available on all the maps.
 */
 console.log(rest.get('name'));
 console.log(rest.get(true));
+console.log(rest.get(1));
+console.log(rest.get('open'));
+
+/* here we use this pattern to know when it's open and close
+   this pattern is so claver but not readable, this just really
+   goes to show the power of hvaing Booleans as maps keys :  */
+const time = 12;
+rest.get(time > rest.get('open') && time < rest.get('close'));
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+//  here we also check if a map contains a certain key : has method :
+console.log(rest.has('categories')); // result : true.
+// Delet elements from map :
+rest.delete(2);
+console.log(rest);
+/* comaparing to objects, we can also delete properties from objects using somthing
+   called the Delete Operator.But, that's a really slow process. and usually, it's
+   not encouraged to do that here. the has method ; objects do also have a method
+   which is called hasOwnProperty. But we're gonna talk about that in OOP.
+   Map has the size property like set : 
+  */
+
+console.log(rest.size); // output 7, it has 7 items or elements.
+// console.log(rest.clear); // remove all the elements from the map like set.
+// The set and map are both introduced in ES6.
+// we can use arrays or objects as map keys :
+
+// rest.set([1, 2], 'Test');
+// console.log(rest);
+// console.log(rest.get);
+// now to get the data based on that array :
+// rest.get([1, 2]);
+// onsole.log(rest.get([1, 2])); // in this way we couldn't so we should  do like this :
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.size);
+console.log(rest.get(arr));
+// we can use the object as map keys, this can be very sueful with DOM elements :
+rest.set(document.querySelector('h1'), 'Heading'); // the result of this will be an object.
 
 // if (restaurant.openingHours && restaurant.openingHours.mon)
 //   console.log(restaurant.openingHours.mon.open);
