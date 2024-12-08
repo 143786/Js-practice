@@ -104,8 +104,161 @@ we have always been doing, but now we no longer need to do that  we can write it
   },
 };
 
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
+/*   ****** Sets and maps ******* :
+In te past, js has always had very little built-in data structures.
+basically, we only had  Arrays and Objects. BUT in ES6 two more 
+data structures were finally introduced. And that are sets and maps.
+So these are pretty common data structures that already exists in 
+other programming languages, and now, they also exist in JS.
+So in here we learn all about sets: 
+    ******** set is just a collection of unique values, so that
+    means that a set can never have any duplicates. and that 
+    property makes them useful in certain situations. so 
+    le's create a new set here :
+ */
+
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderSet); /* in output of console we have just
+  three values pasta , pizza and Risotto , so all the duplicates
+  are gone. AND kind of look similar to an array. So there are
+  no key value pairs, it's just a buch of values grouped together
+  And just like arrays, sets are also iterables, set is still 
+  very different from an array. so first, because it's elements
+  are unique. AND second, because the order of elements in the 
+  set is irrelevant.  */
+
+console.log(new Set('Ayline')); /* so we have get a set with 
+6 elements ( a y l i n e ) that's the five components of this 
+iterable, which is the String. ANd of course, the set could also
+be empty, just like this :  console.log(new Set(' '));
+
+Now we learn how to work with sets :
+*/
+
+console.log(orderSet.size); // we can get the size of a set.
+// it's not length like its in arrays.
+
+/* we can check if a certain element is in a set.
+actually it's a method : has()
+*/
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('bread'));
+// to add some elements in set we use the add keywords or add method:
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+// console.log(orderSet);
+/* the garlic bread got added, but only, of them, because the
+   set has to be unique and so the second one was basicallu 
+   ignored.
+*/
+// * for delete elements :
+orderSet.delete('Risotto');
+//orderSet.clear(); //  This method is for delete all elements :
+console.log(orderSet);
+
+/* *** in sets there are no indexex, and in fact, there is no way
+of getting values out of a set. there's no need for getting data 
+out of a set. That's because if all values are unique, and if their
+order does not matter then there is not point of retrieving values
+out of a set. All we need to know is whether a certain value is in
+the set or not. And that's why we have the has method.
+If your goal is to store values in order and then tetrieve it,then
+the best use case, is to just use an Array. you wouldn't use a set
+for that.
+*/
+
+// set is iterables : so we can loop over them :
+
+for (const order of orderSet) console.log(order); /* So looping is possible 
+just like in any other iterable. 
+*/
+/*     ****  The big use case of set :
+in a normal code base, the main use of sets is to remove duplicates
+values of arrays.
+Example 
+*/
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// we want to have an array without the duplicate of elements :
+const stafUnique = new Set(staff);
+/* so here we want to be an array our set so ;
+ here we convert the set to an array with spread operator
+ the conversion is easy because both the set and arrays are
+  iterables.  spread operators work in all iterables. */
+const stafUnique1 = [...new Set(staff)];
+
+console.log(stafUnique, stafUnique1);
+
+/* now we want to know how many diffrent positions there are the the
+ size property is very useful : */
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+
+/*  And the same could even be done with counting, how many 
+different letters there are in a string ; because a string
+is also an iterable :  */
+console.log(new Set('Ayline').size);
+/*  ********** AS a Conclusion : sets are not intended  to replace arrays
+ at all, so whenever you need to store values in order, and
+ that might contain duplicates, always just use arrays, That's 
+ also true when you need to really manipulate data, because 
+ arrrays have access to a lot of great array methods.
+ Sets have this very useful property of bieng unique, and it's also
+ very easy to interact with sets by using all of their straightforword
+ methods, however, they are not nearly as important as arrays.
+  */
+
+/*    ---------- MAPS : maps are a lot more useful than sets.
+        So what is a map ? 
+        map is a data structure that we can use to map valeues
+        to keys. So just like an object data is stored in key
+        value pairs in maps. Now, the big diffrence between
+        objects and maps : in maps , the keys can have any 
+        type and this can be huge. so, in Object, the keys are 
+        always strings. But in maps, we can have any type of key.
+        it could even be objects, or arrays, or other maps.
+        so, that can lead to some really great and advanced stuff.
+
+        so let's create a restaurant map here: 
+        so we use again the constructor just like we used for 
+        the set, but this one called map. And the easeiest way 
+        to create a map is to create an empty map like like without
+        paassing anything in.  
+        And then , to fill up the map we can use the set method.
+        The set mehtod is similar to add mehtod that we had in sets.
+        So both allow us to add a new element.
+ */
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisob, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+/* so calling the set method returns the updated map. And so , all
+of this is now the updated map. And so, we can call set again on 
+that map,
+In order to read data from a map we use the Get method. And so, that
+get method is available on all the maps.
+*/
+console.log(rest.get('name'));
+console.log(rest.get(true));
+
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
 
 /*  -- ***** Optional chaining => THis feature interduced in ES2020 *** 
 if a certain property does not exist, then undefined is returned immediately.  and so that will
@@ -113,8 +266,8 @@ then avoid that kind of error that we sa earlier :  istead of dot (.) we use que
 then open, so here is how optional chaining works :
 
  */
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open);
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
 
 /*  so only if the property that is before this question mark here, so only if Monday exist,
 Then this open property will be read from there.  But if not, the immediately undefined will be
@@ -123,36 +276,36 @@ returned. and exist here actullay means the nullish concept, so if it's zero or 
 
 //  Example of Optional chaining  and nullish coalescing
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'cloded';
-  // here we use the optional chaining operator (?.) and the nullish coalescing operator (??)
-  // working together. they were introduced at the same time in ES2020. they were design to work
-  // with each other. so both of them rely on this new concept of nullish so nullish values are
-  // null and undefined.
-  console.log(`On ${day}, we open at ${open}`);
-}
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'cloded';
+//   // here we use the optional chaining operator (?.) and the nullish coalescing operator (??)
+// working together. they were introduced at the same time in ES2020. they were design to work
+// with each other. so both of them rely on this new concept of nullish so nullish values are
+// null and undefined.
+//   console.log(`On ${day}, we open at ${open}`);
+// }
 
 /*  Optional chaining and nullish coalescing - for calling Methods :      */
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist');
 
 /*  Optional chaining and nullish coalescing - Arrays :  
 So basically we can use it to cheack if an array is empty , so 
 we simply create a users array :    */
 
-const users = [{ name: 'ayline', email: 'abdelmaliktabish@gmail.com' }];
-// now to get the name of the first element of this array, we can do this, if it exist so
-// optional chaining only then take its name, and otherwise we want to log user array empty.
-console.log(users[0].name ?? 'User array empty');
+// const users = [{ name: 'ayline', email: 'abdelmaliktabish@gmail.com' }];
+// // now to get the name of the first element of this array, we can do this, if it exist so
+// // optional chaining only then take its name, and otherwise we want to log user array empty.
+// console.log(users[0].name ?? 'User array empty');
 
-// without optional chaining we would have to write something like this :
-if (users.length > 0) console.log(users[0].name);
-else console.log('User array empty');
-/* so that looks like a lot more work then what we just have up there. so here
- we don't need to do any cheack so that's a lot better.
- console.log(users[0].name ?? 'User array empty');  
- so now in both cases, we get ayline . */
+// // without optional chaining we would have to write something like this :
+// if (users.length > 0) console.log(users[0].name);
+// else console.log('User array empty');
+// /* so that looks like a lot more work then what we just have up there. so here
+//  we don't need to do any cheack so that's a lot better.
+//  console.log(users[0].name ?? 'User array empty');
+//so now in both cases, we get ayline .
 
 /* - ******************** - Looping Objects :  object Keys, values And Entries  ********
    We learned about the for of loop to loop over arrays, which remember is iterable, but 
@@ -167,32 +320,34 @@ else console.log('User array empty');
 */
 
 // Property NAMES :
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} 
-days: `;
-for (const day of properties) {
-  openStr += `${day},`;
-}
-console.log(openStr);
+// let openStr = `We are open on ${properties.length}
+// days: `;
+// for (const day of properties) {
+//   openStr += `${day},`;
+// }
+// console.log(openStr);
 
-// Property VALUES :
+// // Property VALUES :
 
-const values = Object.values(openingHours);
-console.log(values);
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// Entire object :
+// // Entire object :
 
-const entries = Object.entries(openingHours);
+// const entries = Object.entries(openingHours);
 // console.log(entries);
 // we now get an array, so all of these keys, values and entries basically transformed the
 // object into an array. and here we have fiest the key then the value, so now we can use this
 // to basically loop over the object :
 
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+
+//   // here we got all of the data out of the object into nicly and neat string (look at console).
+// }
 
 /*  ****    --- Looping Arrays : The for-of Loop -- introduced in ES6  : 
 This loop will automatically loop over the entire array and in each iteration, it 
