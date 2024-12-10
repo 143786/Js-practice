@@ -298,6 +298,30 @@ console.log(rest.get(arr));
 // we can use the object as map keys, this can be very sueful with DOM elements :
 rest.set(document.querySelector('h1'), 'Heading'); // the result of this will be an object.
 
+//  ***************************  Maps Iteration ***************** :
+/*    There is another way of populating a new map without having to use the 
+      set method, and i prefer that because the set method is a bit cumbersome
+      when there are a lot values to set. So instead we can create a new map
+      like this : here in example we passe an array and that array itself contain
+      multiple arrays. 
+ */
+const question = new Map([
+  ['question', 'What is the best programming language in the world? '],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct '],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+console.log(Object.entries(openingHours));
+
+// *********** Convert object to map :
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
 // if (restaurant.openingHours && restaurant.openingHours.mon)
 //   console.log(restaurant.openingHours.mon.open);
 
