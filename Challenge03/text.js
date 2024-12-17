@@ -63,5 +63,6 @@ In this example, gameEvents initially contains duplicate entries.
 By creating a Set and then using the spread operator, we get an array 
 events that contains only the unique elements.
 
+****  with .pop() method we will take the last element out of the array.
 
 */

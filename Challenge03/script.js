@@ -91,3 +91,22 @@ gameEvents.delete(64);
 // console.log(gameEvents);
 
 // 3.
+// console.log(`An event happened, on
+// average, every ${90 / gameEvents.size} minutes`);
+
+// const time = [...gameEvents.keys()];
+// console.log(time);
+// Now we want the last value. And how can we get the last value ?
+// we can use the pop method.
+// with .pop() method we will take the
+//last element out of the array.
+
+const time = [...gameEvents.keys()].pop();
+console.log(`An event happened, on
+average, every ${time / gameEvents.size} minutes`);
+
+// 4.
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? "FIRST " : "SECOND";
+  console.log(`[${half} HALF ] ${min}: ${event}`);
+}
